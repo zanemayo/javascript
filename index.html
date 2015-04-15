@@ -1,37 +1,27 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-us">
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Airbnb JavaScript Style Guide : A mostly reasonable approach to JavaScript" />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Airbnb JavaScript Style Guide</title>
+    <meta charset="UTF-8">
+    <title>Airbnb JavaScript Style Guide by zanemayo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
+    <section class="page-header">
+      <h1 class="project-name">Airbnb JavaScript Style Guide</h1>
+      <h2 class="project-tagline">A mostly reasonable approach to JavaScript</h2>
+      <a href="https://github.com/zanemayo/javascript" class="btn">View on GitHub</a>
+      <a href="https://github.com/zanemayo/javascript/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/zanemayo/javascript/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/airbnb/javascript">View on GitHub</a>
-
-          <h1 id="project_title">Airbnb JavaScript Style Guide</h1>
-          <h2 id="project_tagline">A mostly reasonable approach to JavaScript</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/airbnb/javascript/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/airbnb/javascript/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h2><a name="TOC">Table of Contents</a></h2>
+    <section class="main-content">
+      <h2>
+<a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="TOC">Table of Contents</a>
+</h2>
 
 <ol>
 <li><a href="#types">Types</a></li>
@@ -62,7 +52,11 @@
 <li><a href="#guide-guide">The JavaScript Style Guide Guide</a></li>
 <li><a href="#contributors">Contributors</a></li>
 <li><a href="#license">License</a></li>
-</ol><h2><a name="types">Types</a></h2>
+</ol>
+
+<h2>
+<a id="types" class="anchor" href="#types" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="types">Types</a>
+</h2>
 
 <ul>
 <li>
@@ -75,13 +69,13 @@
 <li><code>null</code></li>
 <li><code>undefined</code></li>
 </ul>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nx">bar</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">;</span>
 
-<span class="nx">bar</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> foo <span class="pl-k">=</span> <span class="pl-c1">1</span>,
+    bar <span class="pl-k">=</span> foo;
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">,</span> <span class="nx">bar</span><span class="p">);</span> <span class="c1">// =&gt; 1, 9</span>
-</pre></div>
+bar <span class="pl-k">=</span> <span class="pl-c1">9</span>;
+
+<span class="pl-en">console</span><span class="pl-c1">.log</span>(foo, bar); <span class="pl-c">// =&gt; 1, 9</span></pre></div>
 </li>
 <li>
 <p><strong>Complex</strong>: When you access a complex type you work on a reference to its value</p>
@@ -91,471 +85,485 @@
 <li><code>array</code></li>
 <li><code>function</code></li>
 </ul>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-    <span class="nx">bar</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">;</span>
 
-<span class="nx">bar</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> foo <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>],
+    bar <span class="pl-k">=</span> foo;
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">bar</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">// =&gt; 9, 9</span>
-</pre></div>
+bar[<span class="pl-c1">0</span>] <span class="pl-k">=</span> <span class="pl-c1">9</span>;
+
+<span class="pl-en">console</span><span class="pl-c1">.log</span>(foo[<span class="pl-c1">0</span>], bar[<span class="pl-c1">0</span>]); <span class="pl-c">// =&gt; 9, 9</span></pre></div>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="objects">Objects</a></h2>
+</ul>
+
+<h2>
+<a id="objects" class="anchor" href="#objects" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="objects">Objects</a>
+</h2>
 
 <ul>
 <li>
 <p>Use the literal syntax for object creation.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">var</span> item <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Object</span>();
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="p">{};</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> item <span class="pl-k">=</span> {};</pre></div>
 </li>
 <li>
 <p>Don't use <a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Reserved_Words">reserved words</a> as keys.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">superman</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="kr">class</span><span class="o">:</span> <span class="s1">'superhero'</span><span class="p">,</span>
-  <span class="k">default</span><span class="o">:</span> <span class="p">{</span> <span class="nx">clark</span><span class="o">:</span> <span class="s1">'kent'</span> <span class="p">},</span>
-  <span class="kr">private</span><span class="o">:</span> <span class="kc">true</span>
-<span class="p">};</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">var</span> superman <span class="pl-k">=</span> {
+  class<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>superhero<span class="pl-pds">'</span></span>,
+  <span class="pl-k">default</span><span class="pl-k">:</span> { clark<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>kent<span class="pl-pds">'</span></span> },
+  private<span class="pl-k">:</span> <span class="pl-c1">true</span>
+};
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">superman</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">klass</span><span class="o">:</span> <span class="s1">'superhero'</span><span class="p">,</span>
-  <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span> <span class="nx">clark</span><span class="o">:</span> <span class="s1">'kent'</span> <span class="p">},</span>
-  <span class="nx">hidden</span><span class="o">:</span> <span class="kc">true</span>
-<span class="p">};</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> superman <span class="pl-k">=</span> {
+  klass<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>superhero<span class="pl-pds">'</span></span>,
+  defaults<span class="pl-k">:</span> { clark<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>kent<span class="pl-pds">'</span></span> },
+  hidden<span class="pl-k">:</span> <span class="pl-c1">true</span>
+};</pre></div>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="arrays">Arrays</a></h2>
+</ul>
+
+<h2>
+<a id="arrays" class="anchor" href="#arrays" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="arrays">Arrays</a>
+</h2>
 
 <ul>
 <li>
 <p>Use the literal syntax for array creation</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">var</span> items <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Array</span>();
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="p">[];</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> items <span class="pl-k">=</span> [];</pre></div>
 </li>
 <li>
 <p>If you don't know array length use Array#push.</p>
 
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">someStack</span> <span class="o">=</span> <span class="p">[];</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> someStack <span class="pl-k">=</span> [];
 
-<span class="c1">// bad</span>
-<span class="nx">someStack</span><span class="p">[</span><span class="nx">someStack</span><span class="p">.</span><span class="nx">length</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'abracadabra'</span><span class="p">;</span>
 
-<span class="c1">// good</span>
-<span class="nx">someStack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">'abracadabra'</span><span class="p">);</span>
-</pre></div>
+<span class="pl-c">// bad</span>
+someStack[someStack.<span class="pl-c1">length</span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>abracadabra<span class="pl-pds">'</span></span>;
+
+<span class="pl-c">// good</span>
+someStack.<span class="pl-c1">push</span>(<span class="pl-s"><span class="pl-pds">'</span>abracadabra<span class="pl-pds">'</span></span>);</pre></div>
 </li>
 <li>
 <p>When you need to copy an array use Array#slice. <a href="http://jsperf.com/converting-arguments-to-an-array/7">jsPerf</a></p>
 
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
-    <span class="nx">itemsCopy</span> <span class="o">=</span> <span class="p">[],</span>
-    <span class="nx">i</span><span class="p">;</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> len <span class="pl-k">=</span> items.<span class="pl-c1">length</span>,
+    itemsCopy <span class="pl-k">=</span> [],
+    i;
 
-<span class="c1">// bad</span>
-<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">itemsCopy</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-<span class="p">}</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">for</span> (i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> len; i<span class="pl-k">++</span>) {
+  itemsCopy[i] <span class="pl-k">=</span> items[i];
+}
 
-<span class="c1">// good</span>
-<span class="nx">itemsCopy</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">items</span><span class="p">);</span>
-</pre></div>
+<span class="pl-c">// good</span>
+itemsCopy <span class="pl-k">=</span> <span class="pl-c1">Array</span>.<span class="pl-c1">prototype</span>.slice.<span class="pl-c1">call</span>(items);</pre></div>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="strings">Strings</a></h2>
+</ul>
+
+<h2>
+<a id="strings" class="anchor" href="#strings" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="strings">Strings</a>
+</h2>
 
 <ul>
 <li>
 <p>Use single quotes <code>''</code> for strings</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"Bob Parr"</span><span class="p">;</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">var</span> name <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Bob Parr<span class="pl-pds">"</span></span>;
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">'Bob Parr'</span><span class="p">;</span>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> name <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Bob Parr<span class="pl-pds">'</span></span>;
 
-<span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">fullName</span> <span class="o">=</span> <span class="s2">"Bob "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">;</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">var</span> fullName <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Bob <span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-v">this</span>.lastName;
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">fullName</span> <span class="o">=</span> <span class="s1">'Bob '</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">;</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> fullName <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Bob <span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-v">this</span>.lastName;</pre></div>
 </li>
 <li><p>Strings longer than 80 characters should be written across multiple lines using string concatenation.</p></li>
 <li>
 <p>Note: If overused, long strings with concatenation could impact performance. <a href="http://jsperf.com/ya-string-concat">jsPerf</a> &amp; <a href="https://github.com/airbnb/javascript/issues/40">Discussion</a></p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">errorMessage</span> <span class="o">=</span> <span class="s1">'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.'</span><span class="p">;</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">var</span> errorMessage <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.<span class="pl-pds">'</span></span>;
 
-<span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">errorMessage</span> <span class="o">=</span> <span class="s1">'This is a super long error that \</span>
-<span class="s1">was thrown because of Batman. \</span>
-<span class="s1">When you stop to think about \</span>
-<span class="s1">how Batman had anything to do \</span>
-<span class="s1">with this, you would get nowhere \</span>
-<span class="s1">fast.'</span><span class="p">;</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">var</span> errorMessage <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>This is a super long error that \</span>
+<span class="pl-s">was thrown because of Batman. \</span>
+<span class="pl-s">When you stop to think about \</span>
+<span class="pl-s">how Batman had anything to do \</span>
+<span class="pl-s">with this, you would get nowhere \</span>
+<span class="pl-s">fast.<span class="pl-pds">'</span></span>;
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">errorMessage</span> <span class="o">=</span> <span class="s1">'This is a super long error that '</span> <span class="o">+</span>
-  <span class="s1">'was thrown because of Batman.'</span> <span class="o">+</span>
-  <span class="s1">'When you stop to think about '</span> <span class="o">+</span>
-  <span class="s1">'how Batman had anything to do '</span> <span class="o">+</span>
-  <span class="s1">'with this, you would get nowhere '</span> <span class="o">+</span>
-  <span class="s1">'fast.'</span><span class="p">;</span>
-</pre></div>
+
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> errorMessage <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>This is a super long error that <span class="pl-pds">'</span></span> <span class="pl-k">+</span>
+  <span class="pl-s"><span class="pl-pds">'</span>was thrown because of Batman.<span class="pl-pds">'</span></span> <span class="pl-k">+</span>
+  <span class="pl-s"><span class="pl-pds">'</span>When you stop to think about <span class="pl-pds">'</span></span> <span class="pl-k">+</span>
+  <span class="pl-s"><span class="pl-pds">'</span>how Batman had anything to do <span class="pl-pds">'</span></span> <span class="pl-k">+</span>
+  <span class="pl-s"><span class="pl-pds">'</span>with this, you would get nowhere <span class="pl-pds">'</span></span> <span class="pl-k">+</span>
+  <span class="pl-s"><span class="pl-pds">'</span>fast.<span class="pl-pds">'</span></span>;</pre></div>
 </li>
 <li>
 <p>When programatically building up a string, use Array#join instead of string concatenation. Mostly for IE: <a href="http://jsperf.com/string-vs-array-concat/2">jsPerf</a>.</p>
 
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">items</span><span class="p">,</span>
-    <span class="nx">messages</span><span class="p">,</span>
-    <span class="nx">length</span><span class="p">,</span> <span class="nx">i</span><span class="p">;</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> items,
+    messages,
+    length, i;
 
-<span class="nx">messages</span> <span class="o">=</span> <span class="p">[{</span>
-    <span class="nx">state</span><span class="o">:</span> <span class="s1">'success'</span><span class="p">,</span>
-    <span class="nx">message</span><span class="o">:</span> <span class="s1">'This one worked.'</span>
-<span class="p">},{</span>
-    <span class="nx">state</span><span class="o">:</span> <span class="s1">'success'</span><span class="p">,</span>
-    <span class="nx">message</span><span class="o">:</span> <span class="s1">'This one worked as well.'</span>
-<span class="p">},{</span>
-    <span class="nx">state</span><span class="o">:</span> <span class="s1">'error'</span><span class="p">,</span>
-    <span class="nx">message</span><span class="o">:</span> <span class="s1">'This one did not work.'</span>
-<span class="p">}];</span>
+messages <span class="pl-k">=</span> [{
+    state<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>success<span class="pl-pds">'</span></span>,
+    message<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>This one worked.<span class="pl-pds">'</span></span>
+},{
+    state<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>success<span class="pl-pds">'</span></span>,
+    message<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>This one worked as well.<span class="pl-pds">'</span></span>
+},{
+    state<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>error<span class="pl-pds">'</span></span>,
+    message<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>This one did not work.<span class="pl-pds">'</span></span>
+}];
 
-<span class="nx">length</span> <span class="o">=</span> <span class="nx">messages</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+length <span class="pl-k">=</span> messages.<span class="pl-c1">length</span>;
 
-<span class="c1">// bad</span>
-<span class="kd">function</span> <span class="nx">inbox</span><span class="p">(</span><span class="nx">messages</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">items</span> <span class="o">=</span> <span class="s1">'&lt;ul&gt;'</span><span class="p">;</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">function</span> <span class="pl-en">inbox</span>(<span class="pl-smi">messages</span>) {
+  items <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;ul&gt;<span class="pl-pds">'</span></span>;
 
-  <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">items</span> <span class="o">+=</span> <span class="s1">'&lt;li&gt;'</span> <span class="o">+</span> <span class="nx">messages</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">message</span> <span class="o">+</span> <span class="s1">'&lt;/li&gt;'</span><span class="p">;</span>
-  <span class="p">}</span>
+  <span class="pl-k">for</span> (i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> length; i<span class="pl-k">++</span>) {
+    items <span class="pl-k">+=</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;li&gt;<span class="pl-pds">'</span></span> <span class="pl-k">+</span> messages[i].message <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;/li&gt;<span class="pl-pds">'</span></span>;
+  }
 
-  <span class="k">return</span> <span class="nx">items</span> <span class="o">+</span> <span class="s1">'&lt;/ul&gt;'</span><span class="p">;</span>
-<span class="p">}</span>
+  <span class="pl-k">return</span> items <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;/ul&gt;<span class="pl-pds">'</span></span>;
+}
 
-<span class="c1">// good</span>
-<span class="kd">function</span> <span class="nx">inbox</span><span class="p">(</span><span class="nx">messages</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">items</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="pl-c">// good</span>
+<span class="pl-k">function</span> <span class="pl-en">inbox</span>(<span class="pl-smi">messages</span>) {
+  items <span class="pl-k">=</span> [];
 
-  <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">messages</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">message</span><span class="p">;</span>
-  <span class="p">}</span>
+  <span class="pl-k">for</span> (i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> length; i<span class="pl-k">++</span>) {
+    items[i] <span class="pl-k">=</span> messages[i].message;
+  }
 
-  <span class="k">return</span> <span class="s1">'&lt;ul&gt;&lt;li&gt;'</span> <span class="o">+</span> <span class="nx">items</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">'&lt;/li&gt;&lt;li&gt;'</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'&lt;/li&gt;&lt;/ul&gt;'</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
+  <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;ul&gt;&lt;li&gt;<span class="pl-pds">'</span></span> <span class="pl-k">+</span> items.<span class="pl-c1">join</span>(<span class="pl-s"><span class="pl-pds">'</span>&lt;/li&gt;&lt;li&gt;<span class="pl-pds">'</span></span>) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;/li&gt;&lt;/ul&gt;<span class="pl-pds">'</span></span>;
+}</pre></div>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="functions">Functions</a></h2>
+</ul>
+
+<h2>
+<a id="functions" class="anchor" href="#functions" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="functions">Functions</a>
+</h2>
 
 <ul>
 <li>
 <p>Function expressions:</p>
 
-<div class="highlight"><pre><span class="c1">// anonymous function expression</span>
-<span class="kd">var</span> <span class="nx">anonymous</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-<span class="p">};</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// anonymous function expression</span>
+<span class="pl-k">var</span> <span class="pl-en">anonymous</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
+  <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+};
 
-<span class="c1">// named function expression</span>
-<span class="kd">var</span> <span class="nx">named</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">named</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-<span class="p">};</span>
+<span class="pl-c">// named function expression</span>
+<span class="pl-k">var</span> <span class="pl-en">named</span> <span class="pl-k">=</span> <span class="pl-k">function</span> <span class="pl-en">named</span>() {
+  <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+};
 
-<span class="c1">// immediately-invoked function expression (IIFE)</span>
-<span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Welcome to the Internet. Please follow me.'</span><span class="p">);</span>
-<span class="p">})();</span>
-</pre></div>
+<span class="pl-c">// immediately-invoked function expression (IIFE)</span>
+(<span class="pl-k">function</span>() {
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>Welcome to the Internet. Please follow me.<span class="pl-pds">'</span></span>);
+})();</pre></div>
 </li>
 <li><p>Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.</p></li>
 <li>
 <p><strong>Note:</strong> ECMA-262 defines a <code>block</code> as a list of statements. A function declartion is not a statement. <a href="http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97">Read ECMA-262's note on this issue</a>.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">currentUser</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Nope.'</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">if</span> (currentUser) {
+  <span class="pl-k">function</span> <span class="pl-en">test</span>() {
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>Nope.<span class="pl-pds">'</span></span>);
+  }
+}
 
-<span class="c1">// good</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">currentUser</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Yup.'</span><span class="p">);</span>
-  <span class="p">};</span>
-<span class="p">}</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">if</span> (currentUser) {
+  <span class="pl-k">var</span> <span class="pl-en">test</span> <span class="pl-k">=</span> <span class="pl-k">function</span> <span class="pl-en">test</span>() {
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>Yup.<span class="pl-pds">'</span></span>);
+  };
+}</pre></div>
 </li>
 <li>
 <p>Never name a parameter <code>arguments</code>, this will take precedence over the <code>arguments</code> object that is given to every function scope.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">function</span> <span class="nx">nope</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// ...stuff...</span>
-<span class="p">}</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">function</span> <span class="pl-en">nope</span>(<span class="pl-smi">name</span>, <span class="pl-smi">options</span>, <span class="pl-smi">arguments</span>) {
+  <span class="pl-c">// ...stuff...</span>
+}
 
-<span class="c1">// good</span>
-<span class="kd">function</span> <span class="nx">yup</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// ...stuff...</span>
-<span class="p">}</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">function</span> <span class="pl-en">yup</span>(<span class="pl-smi">name</span>, <span class="pl-smi">options</span>, <span class="pl-smi">args</span>) {
+  <span class="pl-c">// ...stuff...</span>
+}</pre></div>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="properties">Properties</a></h2>
+</ul>
+
+<h2>
+<a id="properties" class="anchor" href="#properties" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="properties">Properties</a>
+</h2>
 
 <ul>
 <li>
 <p>Use dot notation when accessing properties.</p>
 
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">luke</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">jedi</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">age</span><span class="o">:</span> <span class="mi">28</span>
-<span class="p">};</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> luke <span class="pl-k">=</span> {
+  jedi<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+  age<span class="pl-k">:</span> <span class="pl-c1">28</span>
+};
 
-<span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">isJedi</span> <span class="o">=</span> <span class="nx">luke</span><span class="p">[</span><span class="s1">'jedi'</span><span class="p">];</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">var</span> isJedi <span class="pl-k">=</span> luke[<span class="pl-s"><span class="pl-pds">'</span>jedi<span class="pl-pds">'</span></span>];
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">isJedi</span> <span class="o">=</span> <span class="nx">luke</span><span class="p">.</span><span class="nx">jedi</span><span class="p">;</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> isJedi <span class="pl-k">=</span> luke.jedi;</pre></div>
 </li>
 <li>
 <p>Use subscript notation <code>[]</code> when accessing properties with a variable.</p>
 
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">luke</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">jedi</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">age</span><span class="o">:</span> <span class="mi">28</span>
-<span class="p">};</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> luke <span class="pl-k">=</span> {
+  jedi<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+  age<span class="pl-k">:</span> <span class="pl-c1">28</span>
+};
 
-<span class="kd">function</span> <span class="nx">getProp</span><span class="p">(</span><span class="nx">prop</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">luke</span><span class="p">[</span><span class="nx">prop</span><span class="p">];</span>
-<span class="p">}</span>
+<span class="pl-k">function</span> <span class="pl-en">getProp</span>(<span class="pl-smi">prop</span>) {
+  <span class="pl-k">return</span> luke[prop];
+}
 
-<span class="kd">var</span> <span class="nx">isJedi</span> <span class="o">=</span> <span class="nx">getProp</span><span class="p">(</span><span class="s1">'jedi'</span><span class="p">);</span>
-</pre></div>
+<span class="pl-k">var</span> isJedi <span class="pl-k">=</span> getProp(<span class="pl-s"><span class="pl-pds">'</span>jedi<span class="pl-pds">'</span></span>);</pre></div>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="variables">Variables</a></h2>
+</ul>
+
+<h2>
+<a id="variables" class="anchor" href="#variables" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="variables">Variables</a>
+</h2>
 
 <ul>
 <li>
 <p>Always use <code>var</code> to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="nx">superPower</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SuperPower</span><span class="p">();</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+superPower <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SuperPower</span>();
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">superPower</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SuperPower</span><span class="p">();</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> superPower <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SuperPower</span>();</pre></div>
 </li>
 <li>
 <p>Use one <code>var</code> declaration for multiple variables and declare each variable on a newline.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">getItems</span><span class="p">();</span>
-<span class="kd">var</span> <span class="nx">goSportsTeam</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">dragonball</span> <span class="o">=</span> <span class="s1">'z'</span><span class="p">;</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">var</span> items <span class="pl-k">=</span> getItems();
+<span class="pl-k">var</span> goSportsTeam <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+<span class="pl-k">var</span> dragonball <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>z<span class="pl-pds">'</span></span>;
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">getItems</span><span class="p">(),</span>
-    <span class="nx">goSportsTeam</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nx">dragonball</span> <span class="o">=</span> <span class="s1">'z'</span><span class="p">;</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> items <span class="pl-k">=</span> getItems(),
+    goSportsTeam <span class="pl-k">=</span> <span class="pl-c1">true</span>,
+    dragonball <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>z<span class="pl-pds">'</span></span>;</pre></div>
 </li>
 <li>
 <p>Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">len</span><span class="p">,</span> <span class="nx">dragonball</span><span class="p">,</span>
-    <span class="nx">items</span> <span class="o">=</span> <span class="nx">getItems</span><span class="p">(),</span>
-    <span class="nx">goSportsTeam</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">var</span> i, len, dragonball,
+    items <span class="pl-k">=</span> getItems(),
+    goSportsTeam <span class="pl-k">=</span> <span class="pl-c1">true</span>;
 
-<span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">getItems</span><span class="p">(),</span>
-    <span class="nx">dragonball</span><span class="p">,</span>
-    <span class="nx">goSportsTeam</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nx">len</span><span class="p">;</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">var</span> i, items <span class="pl-k">=</span> getItems(),
+    dragonball,
+    goSportsTeam <span class="pl-k">=</span> <span class="pl-c1">true</span>,
+    len;
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">getItems</span><span class="p">(),</span>
-    <span class="nx">goSportsTeam</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nx">dragonball</span><span class="p">,</span>
-    <span class="nx">i</span><span class="p">,</span> <span class="nx">length</span><span class="p">;</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> items <span class="pl-k">=</span> getItems(),
+    goSportsTeam <span class="pl-k">=</span> <span class="pl-c1">true</span>,
+    dragonball,
+    i, length;</pre></div>
 </li>
 <li>
 <p>Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">test</span><span class="p">();</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'doing stuff..'</span><span class="p">);</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">function</span>() {
+  <span class="pl-c1">test</span>();
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>doing stuff..<span class="pl-pds">'</span></span>);
 
-  <span class="c1">//..other stuff..</span>
+  <span class="pl-c">//..other stuff..</span>
 
-  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">getName</span><span class="p">();</span>
+  <span class="pl-k">var</span> name <span class="pl-k">=</span> getName();
 
-  <span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">===</span> <span class="s1">'test'</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-  <span class="p">}</span>
+  <span class="pl-k">if</span> (name <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">'</span>test<span class="pl-pds">'</span></span>) {
+    <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+  }
 
-  <span class="k">return</span> <span class="nx">name</span><span class="p">;</span>
-<span class="p">}</span>
+  <span class="pl-k">return</span> name;
+}
 
-<span class="c1">// good</span>
-<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">getName</span><span class="p">();</span>
+<span class="pl-c">// good</span>
+<span class="pl-k">function</span>() {
+  <span class="pl-k">var</span> name <span class="pl-k">=</span> getName();
 
-  <span class="nx">test</span><span class="p">();</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'doing stuff..'</span><span class="p">);</span>
+  <span class="pl-c1">test</span>();
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>doing stuff..<span class="pl-pds">'</span></span>);
 
-  <span class="c1">//..other stuff..</span>
+  <span class="pl-c">//..other stuff..</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">===</span> <span class="s1">'test'</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-  <span class="p">}</span>
+  <span class="pl-k">if</span> (name <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">'</span>test<span class="pl-pds">'</span></span>) {
+    <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+  }
 
-  <span class="k">return</span> <span class="nx">name</span><span class="p">;</span>
-<span class="p">}</span>
+  <span class="pl-k">return</span> name;
+}
 
-<span class="c1">// bad</span>
-<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">getName</span><span class="p">();</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">function</span>() {
+  <span class="pl-k">var</span> name <span class="pl-k">=</span> getName();
 
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-  <span class="p">}</span>
+  <span class="pl-k">if</span> (<span class="pl-k">!</span>arguments.<span class="pl-c1">length</span>) {
+    <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+  }
 
-  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-<span class="p">}</span>
+  <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+}
 
-<span class="c1">// good</span>
-<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-  <span class="p">}</span>
+<span class="pl-c">// good</span>
+<span class="pl-k">function</span>() {
+  <span class="pl-k">if</span> (<span class="pl-k">!</span>arguments.<span class="pl-c1">length</span>) {
+    <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+  }
 
-  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">getName</span><span class="p">();</span>
+  <span class="pl-k">var</span> name <span class="pl-k">=</span> getName();
 
-  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
+  <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+}</pre></div>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="hoisting">Hoisting</a></h2>
+</ul>
+
+<h2>
+<a id="hoisting" class="anchor" href="#hoisting" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="hoisting">Hoisting</a>
+</h2>
 
 <ul>
 <li>
 <p>Variable declarations get hoisted to the top of their scope, their assignment does not.</p>
 
-<div class="highlight"><pre><span class="c1">// we know this wouldn't work (assuming there</span>
-<span class="c1">// is no notDefined global variable)</span>
-<span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">notDefined</span><span class="p">);</span> <span class="c1">// =&gt; throws a ReferenceError</span>
-<span class="p">}</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// we know this wouldn't work (assuming there</span>
+<span class="pl-c">// is no notDefined global variable)</span>
+<span class="pl-k">function</span> <span class="pl-en">example</span>() {
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(notDefined); <span class="pl-c">// =&gt; throws a ReferenceError</span>
+}
 
-<span class="c1">// creating a variable declaration after you</span>
-<span class="c1">// reference the variable will work due to</span>
-<span class="c1">// variable hoisting. Note: the assignment</span>
-<span class="c1">// value of `true` is not hoisted.</span>
-<span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">declaredButNotAssigned</span><span class="p">);</span> <span class="c1">// =&gt; undefined</span>
-  <span class="kd">var</span> <span class="nx">declaredButNotAssigned</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="pl-c">// creating a variable declaration after you</span>
+<span class="pl-c">// reference the variable will work due to</span>
+<span class="pl-c">// variable hoisting. Note: the assignment</span>
+<span class="pl-c">// value of `true` is not hoisted.</span>
+<span class="pl-k">function</span> <span class="pl-en">example</span>() {
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(declaredButNotAssigned); <span class="pl-c">// =&gt; undefined</span>
+  <span class="pl-k">var</span> declaredButNotAssigned <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+}
 
-<span class="c1">// The interpretor is hoisting the variable</span>
-<span class="c1">// declaration to the top of the scope.</span>
-<span class="c1">// Which means our example could be rewritten as:</span>
-<span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">declaredButNotAssigned</span><span class="p">;</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">declaredButNotAssigned</span><span class="p">);</span> <span class="c1">// =&gt; undefined</span>
-  <span class="nx">declaredButNotAssigned</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
+<span class="pl-c">// The interpretor is hoisting the variable</span>
+<span class="pl-c">// declaration to the top of the scope.</span>
+<span class="pl-c">// Which means our example could be rewritten as:</span>
+<span class="pl-k">function</span> <span class="pl-en">example</span>() {
+  <span class="pl-k">var</span> declaredButNotAssigned;
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(declaredButNotAssigned); <span class="pl-c">// =&gt; undefined</span>
+  declaredButNotAssigned <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+}</pre></div>
 </li>
 <li>
 <p>Anonymous function expressions hoist their variable name, but not the function assignment.</p>
 
-<div class="highlight"><pre><span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">anonymous</span><span class="p">);</span> <span class="c1">// =&gt; undefined</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-k">function</span> <span class="pl-en">example</span>() {
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(anonymous); <span class="pl-c">// =&gt; undefined</span>
 
-  <span class="nx">anonymous</span><span class="p">();</span> <span class="c1">// =&gt; TypeError anonymous is not a function</span>
+  anonymous(); <span class="pl-c">// =&gt; TypeError anonymous is not a function</span>
 
-  <span class="kd">var</span> <span class="nx">anonymous</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'anonymous function expression'</span><span class="p">);</span>
-  <span class="p">};</span>
-<span class="p">}</span>
-</pre></div>
+  <span class="pl-k">var</span> <span class="pl-en">anonymous</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>anonymous function expression<span class="pl-pds">'</span></span>);
+  };
+}</pre></div>
 </li>
 <li>
 <p>Named function expressions hoist the variable name, not the function name or the function body.</p>
 
-<div class="highlight"><pre><span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">named</span><span class="p">);</span> <span class="c1">// =&gt; undefined</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-k">function</span> <span class="pl-en">example</span>() {
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(named); <span class="pl-c">// =&gt; undefined</span>
 
-  <span class="nx">named</span><span class="p">();</span> <span class="c1">// =&gt; TypeError named is not a function</span>
+  named(); <span class="pl-c">// =&gt; TypeError named is not a function</span>
 
-  <span class="nx">superPower</span><span class="p">();</span> <span class="c1">// =&gt; ReferenceError superPower is not defined</span>
+  superPower(); <span class="pl-c">// =&gt; ReferenceError superPower is not defined</span>
 
-  <span class="kd">var</span> <span class="nx">named</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">superPower</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Flying'</span><span class="p">);</span>
-  <span class="p">};</span>
+  <span class="pl-k">var</span> <span class="pl-en">named</span> <span class="pl-k">=</span> <span class="pl-k">function</span> <span class="pl-en">superPower</span>() {
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>Flying<span class="pl-pds">'</span></span>);
+  };
 
-  <span class="c1">// the same is true when the function name</span>
-  <span class="c1">// is the same as the variable name.</span>
-  <span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">named</span><span class="p">);</span> <span class="c1">// =&gt; undefined</span>
 
-    <span class="nx">named</span><span class="p">();</span> <span class="c1">// =&gt; TypeError named is not a function</span>
+  <span class="pl-c">// the same is true when the function name</span>
+  <span class="pl-c">// is the same as the variable name.</span>
+  <span class="pl-k">function</span> <span class="pl-en">example</span>() {
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(named); <span class="pl-c">// =&gt; undefined</span>
 
-    <span class="kd">var</span> <span class="nx">named</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">named</span><span class="p">()</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'named'</span><span class="p">);</span>
-    <span class="p">};</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
+    named(); <span class="pl-c">// =&gt; TypeError named is not a function</span>
+
+    <span class="pl-k">var</span> <span class="pl-en">named</span> <span class="pl-k">=</span> <span class="pl-k">function</span> <span class="pl-en">named</span>() {
+      <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>named<span class="pl-pds">'</span></span>);
+    };
+  }
+}</pre></div>
 </li>
 <li>
 <p>Function declarations hoist their name and the function body.</p>
 
-<div class="highlight"><pre><span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">superPower</span><span class="p">();</span> <span class="c1">// =&gt; Flying</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-k">function</span> <span class="pl-en">example</span>() {
+  superPower(); <span class="pl-c">// =&gt; Flying</span>
 
-  <span class="kd">function</span> <span class="nx">superPower</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Flying'</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
+  <span class="pl-k">function</span> <span class="pl-en">superPower</span>() {
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>Flying<span class="pl-pds">'</span></span>);
+  }
+}</pre></div>
 </li>
 <li>
 <p>For more information refer to <a href="http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting">JavaScript Scoping &amp; Hoisting</a> by <a href="http://www.adequatelygood.com/">Ben Cherry</a></p>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="conditionals">Conditional Expressions &amp; Equality</a></h2>
+</ul>
+
+<h2>
+<a id="conditional-expressions--equality" class="anchor" href="#conditional-expressions--equality" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="conditionals">Conditional Expressions &amp; Equality</a>
+</h2>
 
 <ul>
 <li>Use <code>===</code> and <code>!==</code> over <code>==</code> and <code>!=</code>.</li>
@@ -582,199 +590,203 @@
 <strong>Strings</strong> evaluate to <strong>false</strong> if an empty string <code>''</code>, otherwise <strong>true</strong>
 </li>
 </ul>
-<div class="highlight"><pre><span class="k">if</span> <span class="p">([</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
-  <span class="c1">// true</span>
-  <span class="c1">// An array is an object, objects evaluate to true</span>
-<span class="p">}</span>
-</pre></div>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-k">if</span> ([<span class="pl-c1">0</span>]) {
+  <span class="pl-c">// true</span>
+  <span class="pl-c">// An array is an object, objects evaluate to true</span>
+}</pre></div>
 </li>
 <li>
 <p>Use shortcuts.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">!==</span> <span class="s1">''</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// ...stuff...</span>
-<span class="p">}</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">if</span> (name <span class="pl-k">!==</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>) {
+  <span class="pl-c">// ...stuff...</span>
+}
 
-<span class="c1">// good</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// ...stuff...</span>
-<span class="p">}</span>
+<span class="pl-c">// good</span>
+<span class="pl-k">if</span> (name) {
+  <span class="pl-c">// ...stuff...</span>
+}
 
-<span class="c1">// bad</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">collection</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// ...stuff...</span>
-<span class="p">}</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">if</span> (collection.<span class="pl-c1">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>) {
+  <span class="pl-c">// ...stuff...</span>
+}
 
-<span class="c1">// good</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">collection</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// ...stuff...</span>
-<span class="p">}</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">if</span> (collection.<span class="pl-c1">length</span>) {
+  <span class="pl-c">// ...stuff...</span>
+}</pre></div>
 </li>
 <li>
 <p>For more information see <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108">Truth Equality and JavaScript</a> by Angus Croll</p>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="blocks">Blocks</a></h2>
+</ul>
+
+<h2>
+<a id="blocks" class="anchor" href="#blocks" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="blocks">Blocks</a>
+</h2>
 
 <ul>
 <li>
 <p>Use braces with all multi-line blocks.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">test</span><span class="p">)</span>
-  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">if</span> (test)
+  <span class="pl-k">return</span> <span class="pl-c1">false</span>;
 
-<span class="c1">// good</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">test</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="pl-c">// good</span>
+<span class="pl-k">if</span> (test) <span class="pl-k">return</span> <span class="pl-c1">false</span>;
 
-<span class="c1">// good</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">test</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="pl-c">// good</span>
+<span class="pl-k">if</span> (test) {
+  <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+}
 
-<span class="c1">// bad</span>
-<span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span> <span class="p">}</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">function</span>() { <span class="pl-k">return</span> <span class="pl-c1">false</span>; }
 
-<span class="c1">// good</span>
-<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">function</span>() {
+  <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+}</pre></div>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="comments">Comments</a></h2>
+</ul>
+
+<h2>
+<a id="comments" class="anchor" href="#comments" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="comments">Comments</a>
+</h2>
 
 <ul>
 <li>
 <p>Use <code>/** ... */</code> for multiline comments. Include a description, specify types and values for all parameters and return values.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="c1">// make() returns a new element</span>
-<span class="c1">// based on the passed in tag name</span>
-<span class="c1">//</span>
-<span class="c1">// @param &lt;String&gt; tag</span>
-<span class="c1">// @return &lt;Element&gt; element</span>
-<span class="kd">function</span> <span class="nx">make</span><span class="p">(</span><span class="nx">tag</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-c">// make() returns a new element</span>
+<span class="pl-c">// based on the passed in tag name</span>
+<span class="pl-c">//</span>
+<span class="pl-c">// @param &lt;String&gt; tag</span>
+<span class="pl-c">// @return &lt;Element&gt; element</span>
+<span class="pl-k">function</span> <span class="pl-en">make</span>(<span class="pl-smi">tag</span>) {
 
-  <span class="c1">// ...stuff...</span>
+  <span class="pl-c">// ...stuff...</span>
 
-  <span class="k">return</span> <span class="nx">element</span><span class="p">;</span>
-<span class="p">}</span>
+  <span class="pl-k">return</span> element;
+}
 
-<span class="c1">// good</span>
-<span class="cm">/**</span>
-<span class="cm"> * make() returns a new element</span>
-<span class="cm"> * based on the passed in tag name</span>
-<span class="cm"> *</span>
-<span class="cm"> * @param &lt;String&gt; tag</span>
-<span class="cm"> * @return &lt;Element&gt; element</span>
-<span class="cm"> */</span>
-<span class="kd">function</span> <span class="nx">make</span><span class="p">(</span><span class="nx">tag</span><span class="p">)</span> <span class="p">{</span>
+<span class="pl-c">// good</span>
+<span class="pl-c">/**</span>
+<span class="pl-c"> * make() returns a new element</span>
+<span class="pl-c"> * based on the passed in tag name</span>
+<span class="pl-c"> *</span>
+<span class="pl-c"> * @param &lt;String&gt; tag</span>
+<span class="pl-c"> * @return &lt;Element&gt; element</span>
+<span class="pl-c"> */</span>
+<span class="pl-k">function</span> <span class="pl-en">make</span>(<span class="pl-smi">tag</span>) {
 
-  <span class="c1">// ...stuff...</span>
+  <span class="pl-c">// ...stuff...</span>
 
-  <span class="k">return</span> <span class="nx">element</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
+  <span class="pl-k">return</span> element;
+}</pre></div>
 </li>
 <li>
 <p>Use <code>//</code> for single line comments. Place single line comments on a newline above the subject of the comment. Put an emptyline before the comment.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">active</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>  <span class="c1">// is current tab</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">var</span> active <span class="pl-k">=</span> <span class="pl-c1">true</span>;  <span class="pl-c">// is current tab</span>
 
-<span class="c1">// good</span>
-<span class="c1">// is current tab</span>
-<span class="kd">var</span> <span class="nx">active</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="pl-c">// good</span>
+<span class="pl-c">// is current tab</span>
+<span class="pl-k">var</span> active <span class="pl-k">=</span> <span class="pl-c1">true</span>;
 
-<span class="c1">// bad</span>
-<span class="kd">function</span> <span class="nx">getType</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'fetching type...'</span><span class="p">);</span>
-  <span class="c1">// set the default type to 'no type'</span>
-  <span class="kd">var</span> <span class="nx">type</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_type</span> <span class="o">||</span> <span class="s1">'no type'</span><span class="p">;</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">function</span> <span class="pl-en">getType</span>() {
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>fetching type...<span class="pl-pds">'</span></span>);
+  <span class="pl-c">// set the default type to 'no type'</span>
+  <span class="pl-k">var</span> type <span class="pl-k">=</span> <span class="pl-v">this</span>._type <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">'</span>no type<span class="pl-pds">'</span></span>;
 
-  <span class="k">return</span> <span class="nx">type</span><span class="p">;</span>
-<span class="p">}</span>
+  <span class="pl-k">return</span> type;
+}
 
-<span class="c1">// good</span>
-<span class="kd">function</span> <span class="nx">getType</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'fetching type...'</span><span class="p">);</span>
+<span class="pl-c">// good</span>
+<span class="pl-k">function</span> <span class="pl-en">getType</span>() {
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>fetching type...<span class="pl-pds">'</span></span>);
 
-  <span class="c1">// set the default type to 'no type'</span>
-  <span class="kd">var</span> <span class="nx">type</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_type</span> <span class="o">||</span> <span class="s1">'no type'</span><span class="p">;</span>
+  <span class="pl-c">// set the default type to 'no type'</span>
+  <span class="pl-k">var</span> type <span class="pl-k">=</span> <span class="pl-v">this</span>._type <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">'</span>no type<span class="pl-pds">'</span></span>;
 
-  <span class="k">return</span> <span class="nx">type</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
+  <span class="pl-k">return</span> type;
+}</pre></div>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="whitespace">Whitespace</a></h2>
+</ul>
+
+<h2>
+<a id="whitespace" class="anchor" href="#whitespace" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="whitespace">Whitespace</a>
+</h2>
 
 <ul>
 <li>
 <p>Use soft tabs set to 2 spaces</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<span class="err">∙∙∙∙</span><span class="kd">var</span> <span class="nx">name</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">function</span>() {
+∙∙∙∙<span class="pl-k">var</span> name;
+}
 
-<span class="c1">// bad</span>
-<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<span class="err">∙</span><span class="kd">var</span> <span class="nx">name</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">function</span>() {
+∙<span class="pl-k">var</span> name;
+}
 
-<span class="c1">// good</span>
-<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<span class="err">∙∙</span><span class="kd">var</span> <span class="nx">name</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">function</span>() {
+∙∙<span class="pl-k">var</span> name;
+}</pre></div>
 </li>
 <li>
 <p>Place 1 space before the leading brace.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">function</span> <span class="nx">test</span><span class="p">(){</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'test'</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">function</span> <span class="pl-en">test</span>(){
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>test<span class="pl-pds">'</span></span>);
+}
 
-<span class="c1">// good</span>
-<span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'test'</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="pl-c">// good</span>
+<span class="pl-k">function</span> <span class="pl-en">test</span>() {
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>test<span class="pl-pds">'</span></span>);
+}
 
-<span class="c1">// bad</span>
-<span class="nx">dog</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'attr'</span><span class="p">,{</span>
-  <span class="nx">age</span><span class="o">:</span> <span class="s1">'1 year'</span><span class="p">,</span>
-  <span class="nx">breed</span><span class="o">:</span> <span class="s1">'Bernese Mountain Dog'</span>
-<span class="p">});</span>
+<span class="pl-c">// bad</span>
+dog.set(<span class="pl-s"><span class="pl-pds">'</span>attr<span class="pl-pds">'</span></span>,{
+  age<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>1 year<span class="pl-pds">'</span></span>,
+  breed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Bernese Mountain Dog<span class="pl-pds">'</span></span>
+});
 
-<span class="c1">// good</span>
-<span class="nx">dog</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'attr'</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">age</span><span class="o">:</span> <span class="s1">'1 year'</span><span class="p">,</span>
-  <span class="nx">breed</span><span class="o">:</span> <span class="s1">'Bernese Mountain Dog'</span>
-<span class="p">});</span>
-</pre></div>
+<span class="pl-c">// good</span>
+dog.set(<span class="pl-s"><span class="pl-pds">'</span>attr<span class="pl-pds">'</span></span>, {
+  age<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>1 year<span class="pl-pds">'</span></span>,
+  breed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Bernese Mountain Dog<span class="pl-pds">'</span></span>
+});</pre></div>
 </li>
 <li>
 <p>Place an empty newline at the end of the file.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">global</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// ...stuff...</span>
-<span class="p">})(</span><span class="k">this</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+(<span class="pl-k">function</span>(<span class="pl-smi">global</span>) {
+  <span class="pl-c">// ...stuff...</span>
+})(<span class="pl-v">this</span>);</pre></div>
 
-<div class="highlight"><pre><span class="c1">// good</span>
-<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">global</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// ...stuff...</span>
-<span class="p">})(</span><span class="k">this</span><span class="p">);</span>
-
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// good</span>
+(<span class="pl-k">function</span>(<span class="pl-smi">global</span>) {
+  <span class="pl-c">// ...stuff...</span>
+})(<span class="pl-v">this</span>);
 </pre></div>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
@@ -782,421 +794,431 @@
 <li>
 <p>Use indentation when making long method chains.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">'#items'</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.selected'</span><span class="p">).</span><span class="nx">highlight</span><span class="p">().</span><span class="nx">end</span><span class="p">().</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.open'</span><span class="p">).</span><span class="nx">updateCount</span><span class="p">();</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+$(<span class="pl-s"><span class="pl-pds">'</span>#items<span class="pl-pds">'</span></span>).<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">'</span>.selected<span class="pl-pds">'</span></span>).highlight().end().<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">'</span>.open<span class="pl-pds">'</span></span>).updateCount();
 
-<span class="c1">// good</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">'#items'</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.selected'</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">highlight</span><span class="p">()</span>
-  <span class="p">.</span><span class="nx">end</span><span class="p">()</span>
-<span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.open'</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">updateCount</span><span class="p">();</span>
+<span class="pl-c">// good</span>
+$(<span class="pl-s"><span class="pl-pds">'</span>#items<span class="pl-pds">'</span></span>)
+  .<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">'</span>.selected<span class="pl-pds">'</span></span>)
+    .highlight()
+    .end()
+  .<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">'</span>.open<span class="pl-pds">'</span></span>)
+    .updateCount();
 
-<span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">leds</span> <span class="o">=</span> <span class="nx">stage</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s1">'.led'</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="nx">data</span><span class="p">).</span><span class="nx">enter</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span><span class="s2">"svg:svg"</span><span class="p">).</span><span class="kr">class</span><span class="p">(</span><span class="s1">'led'</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'width'</span><span class="p">,</span>  <span class="p">(</span><span class="nx">radius</span> <span class="o">+</span> <span class="nx">margin</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">"svg:g"</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"transform"</span><span class="p">,</span> <span class="s2">"translate("</span> <span class="o">+</span> <span class="p">(</span><span class="nx">radius</span> <span class="o">+</span> <span class="nx">margin</span><span class="p">)</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="p">(</span><span class="nx">radius</span> <span class="o">+</span> <span class="nx">margin</span><span class="p">)</span> <span class="o">+</span> <span class="s2">")"</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">tron</span><span class="p">.</span><span class="nx">led</span><span class="p">);</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">var</span> leds <span class="pl-k">=</span> stage.selectAll(<span class="pl-s"><span class="pl-pds">'</span>.led<span class="pl-pds">'</span></span>).<span class="pl-c1">data</span>(data).enter().append(<span class="pl-s"><span class="pl-pds">"</span>svg:svg<span class="pl-pds">"</span></span>).class(<span class="pl-s"><span class="pl-pds">'</span>led<span class="pl-pds">'</span></span>, <span class="pl-c1">true</span>)
+    .attr(<span class="pl-s"><span class="pl-pds">'</span>width<span class="pl-pds">'</span></span>,  (radius <span class="pl-k">+</span> margin) <span class="pl-k">*</span> <span class="pl-c1">2</span>).append(<span class="pl-s"><span class="pl-pds">"</span>svg:g<span class="pl-pds">"</span></span>)
+    .attr(<span class="pl-s"><span class="pl-pds">"</span>transform<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>translate(<span class="pl-pds">"</span></span> <span class="pl-k">+</span> (radius <span class="pl-k">+</span> margin) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>,<span class="pl-pds">"</span></span> <span class="pl-k">+</span> (radius <span class="pl-k">+</span> margin) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>)<span class="pl-pds">"</span></span>)
+    .<span class="pl-c1">call</span>(tron.led);
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">leds</span> <span class="o">=</span> <span class="nx">stage</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s1">'.led'</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">enter</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span><span class="s2">"svg:svg"</span><span class="p">)</span>
-  <span class="p">.</span><span class="kr">class</span><span class="p">(</span><span class="s1">'led'</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'width'</span><span class="p">,</span>  <span class="p">(</span><span class="nx">radius</span> <span class="o">+</span> <span class="nx">margin</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
-<span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">"svg:g"</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"transform"</span><span class="p">,</span> <span class="s2">"translate("</span> <span class="o">+</span> <span class="p">(</span><span class="nx">radius</span> <span class="o">+</span> <span class="nx">margin</span><span class="p">)</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="p">(</span><span class="nx">radius</span> <span class="o">+</span> <span class="nx">margin</span><span class="p">)</span> <span class="o">+</span> <span class="s2">")"</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">tron</span><span class="p">.</span><span class="nx">led</span><span class="p">);</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> leds <span class="pl-k">=</span> stage.selectAll(<span class="pl-s"><span class="pl-pds">'</span>.led<span class="pl-pds">'</span></span>)
+    .<span class="pl-c1">data</span>(data)
+  .enter().append(<span class="pl-s"><span class="pl-pds">"</span>svg:svg<span class="pl-pds">"</span></span>)
+    .class(<span class="pl-s"><span class="pl-pds">'</span>led<span class="pl-pds">'</span></span>, <span class="pl-c1">true</span>)
+    .attr(<span class="pl-s"><span class="pl-pds">'</span>width<span class="pl-pds">'</span></span>,  (radius <span class="pl-k">+</span> margin) <span class="pl-k">*</span> <span class="pl-c1">2</span>)
+  .append(<span class="pl-s"><span class="pl-pds">"</span>svg:g<span class="pl-pds">"</span></span>)
+    .attr(<span class="pl-s"><span class="pl-pds">"</span>transform<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>translate(<span class="pl-pds">"</span></span> <span class="pl-k">+</span> (radius <span class="pl-k">+</span> margin) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>,<span class="pl-pds">"</span></span> <span class="pl-k">+</span> (radius <span class="pl-k">+</span> margin) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>)<span class="pl-pds">"</span></span>)
+    .<span class="pl-c1">call</span>(tron.led);</pre></div>
 </li>
-</ul><h2><a name="leading-commas">Leading Commas</a></h2>
+</ul>
+
+<h2>
+<a id="leading-commas" class="anchor" href="#leading-commas" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="leading-commas">Leading Commas</a>
+</h2>
 
 <ul>
 <li>
 <p><strong>Nope.</strong></p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">once</span>
-  <span class="p">,</span> <span class="nx">upon</span>
-  <span class="p">,</span> <span class="nx">aTime</span><span class="p">;</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">var</span> once
+  , upon
+  , aTime;
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">once</span><span class="p">,</span>
-    <span class="nx">upon</span><span class="p">,</span>
-    <span class="nx">aTime</span><span class="p">;</span>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> once,
+    upon,
+    aTime;
 
-<span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">hero</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">firstName</span><span class="o">:</span> <span class="s1">'Bob'</span>
-  <span class="p">,</span> <span class="nx">lastName</span><span class="o">:</span> <span class="s1">'Parr'</span>
-  <span class="p">,</span> <span class="nx">heroName</span><span class="o">:</span> <span class="s1">'Mr. Incredible'</span>
-  <span class="p">,</span> <span class="nx">superPower</span><span class="o">:</span> <span class="s1">'strength'</span>
-<span class="p">};</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">var</span> hero <span class="pl-k">=</span> {
+    firstName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Bob<span class="pl-pds">'</span></span>
+  , lastName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Parr<span class="pl-pds">'</span></span>
+  , heroName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Mr. Incredible<span class="pl-pds">'</span></span>
+  , superPower<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>strength<span class="pl-pds">'</span></span>
+};
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">hero</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">firstName</span><span class="o">:</span> <span class="s1">'Bob'</span><span class="p">,</span>
-  <span class="nx">lastName</span><span class="o">:</span> <span class="s1">'Parr'</span><span class="p">,</span>
-  <span class="nx">heroName</span><span class="o">:</span> <span class="s1">'Mr. Incredible'</span><span class="p">,</span>
-  <span class="nx">superPower</span><span class="o">:</span> <span class="s1">'strength'</span>
-<span class="p">};</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> hero <span class="pl-k">=</span> {
+  firstName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Bob<span class="pl-pds">'</span></span>,
+  lastName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Parr<span class="pl-pds">'</span></span>,
+  heroName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Mr. Incredible<span class="pl-pds">'</span></span>,
+  superPower<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>strength<span class="pl-pds">'</span></span>
+};</pre></div>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="semicolons">Semicolons</a></h2>
+</ul>
+
+<h2>
+<a id="semicolons" class="anchor" href="#semicolons" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="semicolons">Semicolons</a>
+</h2>
 
 <ul>
 <li>
 <p><strong>Yup.</strong></p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">'Skywalker'</span>
-  <span class="k">return</span> <span class="nx">name</span>
-<span class="p">})()</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+(<span class="pl-k">function</span>() {
+  <span class="pl-k">var</span> name <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Skywalker<span class="pl-pds">'</span></span>
+  <span class="pl-k">return</span> name
+})()
 
-<span class="c1">// good</span>
-<span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">'Skywalker'</span><span class="p">;</span>
-  <span class="k">return</span> <span class="nx">name</span><span class="p">;</span>
-<span class="p">})();</span>
+<span class="pl-c">// good</span>
+(<span class="pl-k">function</span>() {
+  <span class="pl-k">var</span> name <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Skywalker<span class="pl-pds">'</span></span>;
+  <span class="pl-k">return</span> name;
+})();
 
-<span class="c1">// good</span>
-<span class="p">;(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">'Skywalker'</span><span class="p">;</span>
-  <span class="k">return</span> <span class="nx">name</span><span class="p">;</span>
-<span class="p">})();</span>
-</pre></div>
+<span class="pl-c">// good</span>
+;(<span class="pl-k">function</span>() {
+  <span class="pl-k">var</span> name <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Skywalker<span class="pl-pds">'</span></span>;
+  <span class="pl-k">return</span> name;
+})();</pre></div>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="type-coercion">Type Casting &amp; Coercion</a></h2>
+</ul>
+
+<h2>
+<a id="type-casting--coercion" class="anchor" href="#type-casting--coercion" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="type-coercion">Type Casting &amp; Coercion</a>
+</h2>
 
 <ul>
 <li>Perform type coercion at the beginning of the statement.</li>
 <li>
 <p>Strings:</p>
 
-<div class="highlight"><pre><span class="c1">//  =&gt; this.reviewScore = 9;</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">//  =&gt; this.reviewScore = 9;</span>
 
-<span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">totalScore</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">reviewScore</span> <span class="o">+</span> <span class="s1">''</span><span class="p">;</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">var</span> totalScore <span class="pl-k">=</span> <span class="pl-v">this</span>.reviewScore <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>;
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">totalScore</span> <span class="o">=</span> <span class="s1">''</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">reviewScore</span><span class="p">;</span>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> totalScore <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-v">this</span>.reviewScore;
 
-<span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">totalScore</span> <span class="o">=</span> <span class="s1">''</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">reviewScore</span> <span class="o">+</span> <span class="s1">' total score'</span><span class="p">;</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">var</span> totalScore <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-v">this</span>.reviewScore <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> total score<span class="pl-pds">'</span></span>;
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">totalScore</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">reviewScore</span> <span class="o">+</span> <span class="s1">' total score'</span><span class="p">;</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> totalScore <span class="pl-k">=</span> <span class="pl-v">this</span>.reviewScore <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> total score<span class="pl-pds">'</span></span>;</pre></div>
 </li>
 <li><p>Use <code>parseInt</code> for Numbers and always with a radix for type casting.</p></li>
 <li>
 <p>If for whatever reason you are doing something wild and <code>parseInt</code> is your bottleneck and need to use Bitshift for <a href="http://jsperf.com/coercion-vs-casting/3">performance reasons</a>, leave a comment explaining why and what you're doing.</p>
 
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">inputValue</span> <span class="o">=</span> <span class="s1">'4'</span><span class="p">;</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> inputValue <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>4<span class="pl-pds">'</span></span>;
 
-<span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">inputValue</span><span class="p">);</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">var</span> val <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Number</span>(inputValue);
 
-<span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="o">+</span><span class="nx">inputValue</span><span class="p">;</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">var</span> val <span class="pl-k">=</span> <span class="pl-k">+</span>inputValue;
 
-<span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">inputValue</span> <span class="o">&gt;&gt;</span> <span class="mi">0</span><span class="p">;</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">var</span> val <span class="pl-k">=</span> inputValue <span class="pl-k">&gt;&gt;</span> <span class="pl-c1">0</span>;
 
-<span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">inputValue</span><span class="p">);</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">var</span> val <span class="pl-k">=</span> <span class="pl-c1">parseInt</span>(inputValue);
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">inputValue</span><span class="p">);</span>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> val <span class="pl-k">=</span> <span class="pl-c1">Number</span>(inputValue);
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">inputValue</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> val <span class="pl-k">=</span> <span class="pl-c1">parseInt</span>(inputValue, <span class="pl-c1">10</span>);
 
-<span class="c1">// good</span>
-<span class="cm">/**</span>
-<span class="cm"> * parseInt was the reason my code was slow.</span>
-<span class="cm"> * Bitshifting the String to coerce it to a</span>
-<span class="cm"> * Number made it a lot faster.</span>
-<span class="cm"> */</span>
-<span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">inputValue</span> <span class="o">&gt;&gt;</span> <span class="mi">0</span><span class="p">;</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-c">/**</span>
+<span class="pl-c"> * parseInt was the reason my code was slow.</span>
+<span class="pl-c"> * Bitshifting the String to coerce it to a</span>
+<span class="pl-c"> * Number made it a lot faster.</span>
+<span class="pl-c"> */</span>
+<span class="pl-k">var</span> val <span class="pl-k">=</span> inputValue <span class="pl-k">&gt;&gt;</span> <span class="pl-c1">0</span>;</pre></div>
 </li>
 <li>
 <p>Booleans:</p>
 
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> age <span class="pl-k">=</span> <span class="pl-c1">0</span>;
 
-<span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">hasAge</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Boolean</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">var</span> hasAge <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Boolean</span>(age);
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">hasAge</span> <span class="o">=</span> <span class="nb">Boolean</span><span class="p">(</span><span class="nx">age</span><span class="p">);</span>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> hasAge <span class="pl-k">=</span> <span class="pl-c1">Boolean</span>(age);
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">hasAge</span> <span class="o">=</span> <span class="o">!!</span><span class="nx">age</span><span class="p">;</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> hasAge <span class="pl-k">=</span> <span class="pl-k">!!</span>age;</pre></div>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="naming-conventions">Naming Conventions</a></h2>
+</ul>
+
+<h2>
+<a id="naming-conventions" class="anchor" href="#naming-conventions" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="naming-conventions">Naming Conventions</a>
+</h2>
 
 <ul>
 <li>
 <p>Avoid single letter names. Be descriptive with your naming.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">function</span> <span class="nx">q</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// ...stuff...</span>
-<span class="p">}</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">function</span> <span class="pl-en">q</span>() {
+  <span class="pl-c">// ...stuff...</span>
+}
 
-<span class="c1">// good</span>
-<span class="kd">function</span> <span class="nx">query</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// ..stuff..</span>
-<span class="p">}</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">function</span> <span class="pl-en">query</span>() {
+  <span class="pl-c">// ..stuff..</span>
+}</pre></div>
 </li>
 <li>
 <p>Use camelCase when naming objects, functions, and instances</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">OBJEcttsssss</span> <span class="o">=</span> <span class="p">{};</span>
-<span class="kd">var</span> <span class="nx">this_is_my_object</span> <span class="o">=</span> <span class="p">{};</span>
-<span class="kd">var</span> <span class="k">this</span><span class="o">-</span><span class="nx">is</span><span class="o">-</span><span class="nx">my</span><span class="o">-</span><span class="nx">object</span> <span class="o">=</span> <span class="p">{};</span>
-<span class="kd">function</span> <span class="nx">c</span><span class="p">()</span> <span class="p">{};</span>
-<span class="kd">var</span> <span class="nx">u</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">user</span><span class="p">({</span>
-  <span class="nx">name</span><span class="o">:</span> <span class="s1">'Bob Parr'</span>
-<span class="p">});</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">var</span> OBJEcttsssss <span class="pl-k">=</span> {};
+<span class="pl-k">var</span> this_is_my_object <span class="pl-k">=</span> {};
+<span class="pl-k">var</span> <span class="pl-v">this</span><span class="pl-k">-</span>is<span class="pl-k">-</span>my<span class="pl-k">-</span>object <span class="pl-k">=</span> {};
+<span class="pl-k">function</span> <span class="pl-en">c</span>() {};
+<span class="pl-k">var</span> u <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">user</span>({
+  name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Bob Parr<span class="pl-pds">'</span></span>
+});
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">thisIsMyObject</span> <span class="o">=</span> <span class="p">{};</span>
-<span class="kd">function</span> <span class="nx">thisIsMyFunction</span><span class="p">()</span> <span class="p">{};</span>
-<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">({</span>
-  <span class="nx">name</span><span class="o">:</span> <span class="s1">'Bob Parr'</span>
-<span class="p">});</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> thisIsMyObject <span class="pl-k">=</span> {};
+<span class="pl-k">function</span> <span class="pl-en">thisIsMyFunction</span>() {};
+<span class="pl-k">var</span> user <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">User</span>({
+  name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Bob Parr<span class="pl-pds">'</span></span>
+});</pre></div>
 </li>
 <li>
 <p>Use PascalCase when naming constructors or classes</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">function</span> <span class="nx">user</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">function</span> <span class="pl-en">user</span>(<span class="pl-smi">options</span>) {
+  <span class="pl-v">this</span>.<span class="pl-c1">name</span> <span class="pl-k">=</span> options.<span class="pl-c1">name</span>;
+}
 
-<span class="kd">var</span> <span class="nx">bad</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">user</span><span class="p">({</span>
-  <span class="nx">name</span><span class="o">:</span> <span class="s1">'nope'</span>
-<span class="p">});</span>
+<span class="pl-k">var</span> bad <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">user</span>({
+  name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>nope<span class="pl-pds">'</span></span>
+});
 
-<span class="c1">// good</span>
-<span class="kd">function</span> <span class="nx">User</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="pl-c">// good</span>
+<span class="pl-k">function</span> <span class="pl-en">User</span>(<span class="pl-smi">options</span>) {
+  <span class="pl-v">this</span>.<span class="pl-c1">name</span> <span class="pl-k">=</span> options.<span class="pl-c1">name</span>;
+}
 
-<span class="kd">var</span> <span class="nx">good</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">({</span>
-  <span class="nx">name</span><span class="o">:</span> <span class="s1">'yup'</span>
-<span class="p">});</span>
-</pre></div>
+<span class="pl-k">var</span> good <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">User</span>({
+  name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>yup<span class="pl-pds">'</span></span>
+});</pre></div>
 </li>
 <li>
 <p>Use a leading underscore <code>_</code> when naming private properties</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="k">this</span><span class="p">.</span><span class="nx">__firstName__</span> <span class="o">=</span> <span class="s1">'Panda'</span><span class="p">;</span>
-<span class="k">this</span><span class="p">.</span><span class="nx">firstName_</span> <span class="o">=</span> <span class="s1">'Panda'</span><span class="p">;</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-v">this</span>.__firstName__ <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Panda<span class="pl-pds">'</span></span>;
+<span class="pl-v">this</span>.firstName_ <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Panda<span class="pl-pds">'</span></span>;
 
-<span class="c1">// good</span>
-<span class="k">this</span><span class="p">.</span><span class="nx">_firstName</span> <span class="o">=</span> <span class="s1">'Panda'</span><span class="p">;</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-v">this</span>._firstName <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Panda<span class="pl-pds">'</span></span>;</pre></div>
 </li>
 <li>
 <p>When saving a reference to <code>this</code> use <code>_this</code>.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
-  <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">self</span><span class="p">);</span>
-  <span class="p">};</span>
-<span class="p">}</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">function</span>() {
+  <span class="pl-k">var</span> self <span class="pl-k">=</span> <span class="pl-v">this</span>;
+  <span class="pl-k">return</span> <span class="pl-k">function</span>() {
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(self);
+  };
+}
 
-<span class="c1">// bad</span>
-<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
-  <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">that</span><span class="p">);</span>
-  <span class="p">};</span>
-<span class="p">}</span>
+<span class="pl-c">// bad</span>
+<span class="pl-k">function</span>() {
+  <span class="pl-k">var</span> that <span class="pl-k">=</span> <span class="pl-v">this</span>;
+  <span class="pl-k">return</span> <span class="pl-k">function</span>() {
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(that);
+  };
+}
 
-<span class="c1">// good</span>
-<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">_this</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
-  <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">_this</span><span class="p">);</span>
-  <span class="p">};</span>
-<span class="p">}</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">function</span>() {
+  <span class="pl-k">var</span> _this <span class="pl-k">=</span> <span class="pl-v">this</span>;
+  <span class="pl-k">return</span> <span class="pl-k">function</span>() {
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(_this);
+  };
+}</pre></div>
 </li>
 <li>
 <p>Name your functions. This is helpful for stack traces.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">log</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
-<span class="p">};</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">var</span> <span class="pl-en">log</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">msg</span>) {
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(msg);
+};
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">log</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
-<span class="p">};</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> <span class="pl-en">log</span> <span class="pl-k">=</span> <span class="pl-k">function</span> <span class="pl-en">log</span>(<span class="pl-smi">msg</span>) {
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(msg);
+};</pre></div>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="accessors">Accessors</a></h2>
+</ul>
+
+<h2>
+<a id="accessors" class="anchor" href="#accessors" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="accessors">Accessors</a>
+</h2>
 
 <ul>
 <li>Accessor functions for properties are not required</li>
 <li>
 <p>If you do make accessor functions use getVal() and setVal('hello')</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="nx">dragon</span><span class="p">.</span><span class="nx">age</span><span class="p">();</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+dragon.age();
 
-<span class="c1">// good</span>
-<span class="nx">dragon</span><span class="p">.</span><span class="nx">getAge</span><span class="p">();</span>
+<span class="pl-c">// good</span>
+dragon.getAge();
 
-<span class="c1">// bad</span>
-<span class="nx">dragon</span><span class="p">.</span><span class="nx">age</span><span class="p">(</span><span class="mi">25</span><span class="p">);</span>
+<span class="pl-c">// bad</span>
+dragon.age(<span class="pl-c1">25</span>);
 
-<span class="c1">// good</span>
-<span class="nx">dragon</span><span class="p">.</span><span class="nx">setAge</span><span class="p">(</span><span class="mi">25</span><span class="p">);</span>
-</pre></div>
+<span class="pl-c">// good</span>
+dragon.setAge(<span class="pl-c1">25</span>);</pre></div>
 </li>
 <li>
 <p>If the property is a boolean, use isVal() or hasVal()</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">dragon</span><span class="p">.</span><span class="nx">age</span><span class="p">())</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">if</span> (<span class="pl-k">!</span>dragon.age()) {
+  <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+}
 
-<span class="c1">// good</span>
-<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">dragon</span><span class="p">.</span><span class="nx">hasAge</span><span class="p">())</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">if</span> (<span class="pl-k">!</span>dragon.hasAge()) {
+  <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+}</pre></div>
 </li>
 <li>
 <p>It's okay to create get() and set() functions, but be consistent.</p>
 
-<div class="highlight"><pre><span class="kd">function</span> <span class="nx">Jedi</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">options</span> <span class="o">||</span> <span class="p">(</span><span class="nx">options</span> <span class="o">=</span> <span class="p">{});</span>
-  <span class="kd">var</span> <span class="nx">lightsaber</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">lightsaber</span> <span class="o">||</span> <span class="s1">'blue'</span><span class="p">;</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'lightsaber'</span><span class="p">,</span> <span class="nx">lightsaber</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-k">function</span> <span class="pl-en">Jedi</span>(<span class="pl-smi">options</span>) {
+  options <span class="pl-k">||</span> (options <span class="pl-k">=</span> {});
+  <span class="pl-k">var</span> lightsaber <span class="pl-k">=</span> options.lightsaber <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">'</span>blue<span class="pl-pds">'</span></span>;
+  <span class="pl-v">this</span>.set(<span class="pl-s"><span class="pl-pds">'</span>lightsaber<span class="pl-pds">'</span></span>, lightsaber);
+}
 
-<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">set</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
-<span class="p">};</span>
+<span class="pl-c1">Jedi</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">set</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">key</span>, <span class="pl-smi">val</span>) {
+  <span class="pl-v">this</span>[key] <span class="pl-k">=</span> val;
+};
 
-<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">get</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="k">this</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
-<span class="p">};</span>
-</pre></div>
+<span class="pl-c1">Jedi</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">get</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">key</span>) {
+  <span class="pl-k">return</span> <span class="pl-v">this</span>[key];
+};</pre></div>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="constructors">Constructors</a></h2>
+</ul>
+
+<h2>
+<a id="constructors" class="anchor" href="#constructors" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="constructors">Constructors</a>
+</h2>
 
 <ul>
 <li>
 <p>Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!</p>
 
-<div class="highlight"><pre><span class="kd">function</span> <span class="nx">Jedi</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'new jedi'</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-k">function</span> <span class="pl-en">Jedi</span>() {
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>new jedi<span class="pl-pds">'</span></span>);
+}
 
-<span class="c1">// bad</span>
-<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">fight</span><span class="o">:</span> <span class="kd">function</span> <span class="nx">fight</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'fighting'</span><span class="p">);</span>
-  <span class="p">},</span>
+<span class="pl-c">// bad</span>
+<span class="pl-c1">Jedi</span>.<span class="pl-c1">prototype</span> <span class="pl-k">=</span> {
+  <span class="pl-en">fight</span>: <span class="pl-k">function</span> <span class="pl-en">fight</span>() {
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>fighting<span class="pl-pds">'</span></span>);
+  },
 
-  <span class="nx">block</span><span class="o">:</span> <span class="kd">function</span> <span class="nx">block</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'blocking'</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">};</span>
+  <span class="pl-en">block</span>: <span class="pl-k">function</span> <span class="pl-en">block</span>() {
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>blocking<span class="pl-pds">'</span></span>);
+  }
+};
 
-<span class="c1">// good</span>
-<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">fight</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">fight</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'fighting'</span><span class="p">);</span>
-<span class="p">};</span>
+<span class="pl-c">// good</span>
+<span class="pl-c1">Jedi</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">fight</span> <span class="pl-k">=</span> <span class="pl-k">function</span> <span class="pl-en">fight</span>() {
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>fighting<span class="pl-pds">'</span></span>);
+};
 
-<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">block</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">block</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'blocking'</span><span class="p">);</span>
-<span class="p">};</span>
-</pre></div>
+<span class="pl-c1">Jedi</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">block</span> <span class="pl-k">=</span> <span class="pl-k">function</span> <span class="pl-en">block</span>() {
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>blocking<span class="pl-pds">'</span></span>);
+};</pre></div>
 </li>
 <li>
 <p>Methods can return <code>this</code> to help with method chaining.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">jump</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">jumping</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-<span class="p">};</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-c1">Jedi</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">jump</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
+  <span class="pl-v">this</span>.jumping <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+  <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+};
 
-<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">setHeight</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">height</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">height</span><span class="p">;</span>
-<span class="p">};</span>
+<span class="pl-c1">Jedi</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">setHeight</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">height</span>) {
+  <span class="pl-v">this</span>.<span class="pl-c1">height</span> <span class="pl-k">=</span> height;
+};
 
-<span class="kd">var</span> <span class="nx">luke</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Jedi</span><span class="p">();</span>
-<span class="nx">luke</span><span class="p">.</span><span class="nx">jump</span><span class="p">();</span> <span class="c1">// =&gt; true</span>
-<span class="nx">luke</span><span class="p">.</span><span class="nx">setHeight</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="c1">// =&gt; undefined</span>
+<span class="pl-k">var</span> luke <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Jedi</span>();
+luke.jump(); <span class="pl-c">// =&gt; true</span>
+luke.setHeight(<span class="pl-c1">20</span>) <span class="pl-c">// =&gt; undefined</span>
 
-<span class="c1">// good</span>
-<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">jump</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">jumping</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
-<span class="p">};</span>
+<span class="pl-c">// good</span>
+<span class="pl-c1">Jedi</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">jump</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
+  <span class="pl-v">this</span>.jumping <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+  <span class="pl-k">return</span> <span class="pl-v">this</span>;
+};
 
-<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">setHeight</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">height</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nx">height</span><span class="p">;</span>
-  <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
-<span class="p">};</span>
+<span class="pl-c1">Jedi</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">setHeight</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">height</span>) {
+  <span class="pl-v">this</span>.<span class="pl-c1">height</span> <span class="pl-k">=</span> height;
+  <span class="pl-k">return</span> <span class="pl-v">this</span>;
+};
 
-<span class="kd">var</span> <span class="nx">luke</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Jedi</span><span class="p">();</span>
+<span class="pl-k">var</span> luke <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Jedi</span>();
 
-<span class="nx">luke</span><span class="p">.</span><span class="nx">jump</span><span class="p">()</span>
-  <span class="p">.</span><span class="nx">setHeight</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
-</pre></div>
+luke.jump()
+  .setHeight(<span class="pl-c1">20</span>);</pre></div>
 </li>
 <li>
 <p>It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.</p>
 
-<div class="highlight"><pre><span class="kd">function</span> <span class="nx">Jedi</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">options</span> <span class="o">||</span> <span class="p">(</span><span class="nx">options</span> <span class="o">=</span> <span class="p">{});</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">name</span> <span class="o">||</span> <span class="s1">'no name'</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-k">function</span> <span class="pl-en">Jedi</span>(<span class="pl-smi">options</span>) {
+  options <span class="pl-k">||</span> (options <span class="pl-k">=</span> {});
+  <span class="pl-v">this</span>.<span class="pl-c1">name</span> <span class="pl-k">=</span> options.<span class="pl-c1">name</span> <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">'</span>no name<span class="pl-pds">'</span></span>;
+}
 
-<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getName</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">getName</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-<span class="p">};</span>
+<span class="pl-c1">Jedi</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">getName</span> <span class="pl-k">=</span> <span class="pl-k">function</span> <span class="pl-en">getName</span>() {
+  <span class="pl-k">return</span> <span class="pl-v">this</span>.<span class="pl-c1">name</span>;
+};
 
-<span class="nx">Jedi</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">toString</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="s1">'Jedi - '</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">getName</span><span class="p">();</span>
-<span class="p">};</span>
-</pre></div>
+<span class="pl-c1">Jedi</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">toString</span> <span class="pl-k">=</span> <span class="pl-k">function</span> <span class="pl-en">toString</span>() {
+  <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">'</span>Jedi - <span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-v">this</span>.getName();
+};</pre></div>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="modules">Modules</a></h2>
+</ul>
+
+<h2>
+<a id="modules" class="anchor" href="#modules" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="modules">Modules</a>
+</h2>
 
 <ul>
 <li>The module should start with a <code>!</code>. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated.</li>
@@ -1205,94 +1227,98 @@
 <li>
 <p>Always declare <code>'use strict';</code> at the top of the module.</p>
 
-<div class="highlight"><pre><span class="c1">// fancyInput/fancyInput.js</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// fancyInput/fancyInput.js</span>
 
-<span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">global</span><span class="p">)</span> <span class="p">{</span>
-  <span class="s1">'use strict'</span><span class="p">;</span>
+<span class="pl-k">!</span><span class="pl-k">function</span>(<span class="pl-smi">global</span>) {
+  <span class="pl-s"><span class="pl-pds">'</span>use strict<span class="pl-pds">'</span></span>;
 
-  <span class="kd">var</span> <span class="nx">previousFancyInput</span> <span class="o">=</span> <span class="nx">global</span><span class="p">.</span><span class="nx">FancyInput</span><span class="p">;</span>
+  <span class="pl-k">var</span> previousFancyInput <span class="pl-k">=</span> <span class="pl-c1">global</span>.FancyInput;
 
-  <span class="kd">function</span> <span class="nx">FancyInput</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">options</span> <span class="o">=</span> <span class="nx">options</span> <span class="o">||</span> <span class="p">{};</span>
-  <span class="p">}</span>
+  <span class="pl-k">function</span> <span class="pl-en">FancyInput</span>(<span class="pl-smi">options</span>) {
+    <span class="pl-v">this</span>.<span class="pl-c1">options</span> <span class="pl-k">=</span> options <span class="pl-k">||</span> {};
+  }
 
-  <span class="nx">FancyInput</span><span class="p">.</span><span class="nx">noConflict</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">noConflict</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">global</span><span class="p">.</span><span class="nx">FancyInput</span> <span class="o">=</span> <span class="nx">previousFancyInput</span><span class="p">;</span>
-    <span class="k">return</span> <span class="nx">FancyInput</span><span class="p">;</span>
-  <span class="p">};</span>
+  <span class="pl-c1">FancyInput</span>.<span class="pl-en">noConflict</span> <span class="pl-k">=</span> <span class="pl-k">function</span> <span class="pl-en">noConflict</span>() {
+    <span class="pl-c1">global</span>.FancyInput <span class="pl-k">=</span> previousFancyInput;
+    <span class="pl-k">return</span> FancyInput;
+  };
 
-  <span class="nx">global</span><span class="p">.</span><span class="nx">FancyInput</span> <span class="o">=</span> <span class="nx">FancyInput</span><span class="p">;</span>
-<span class="p">}(</span><span class="k">this</span><span class="p">);</span>
-</pre></div>
+  <span class="pl-c1">global</span>.FancyInput <span class="pl-k">=</span> FancyInput;
+}(<span class="pl-v">this</span>);</pre></div>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="jquery">jQuery</a></h2>
+</ul>
+
+<h2>
+<a id="jquery" class="anchor" href="#jquery" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="jquery">jQuery</a>
+</h2>
 
 <ul>
 <li>
 <p>Prefix jQuery object variables with a <code>$</code>.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">var</span> <span class="nx">sidebar</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar'</span><span class="p">);</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">var</span> sidebar <span class="pl-k">=</span> $(<span class="pl-s"><span class="pl-pds">'</span>.sidebar<span class="pl-pds">'</span></span>);
 
-<span class="c1">// good</span>
-<span class="kd">var</span> <span class="nx">$sidebar</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar'</span><span class="p">);</span>
-</pre></div>
+<span class="pl-c">// good</span>
+<span class="pl-k">var</span> $sidebar <span class="pl-k">=</span> $(<span class="pl-s"><span class="pl-pds">'</span>.sidebar<span class="pl-pds">'</span></span>);</pre></div>
 </li>
 <li>
 <p>Cache jQuery lookups.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="kd">function</span> <span class="nx">setSidebar</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+<span class="pl-k">function</span> <span class="pl-en">setSidebar</span>() {
+  $(<span class="pl-s"><span class="pl-pds">'</span>.sidebar<span class="pl-pds">'</span></span>).hide();
 
-  <span class="c1">// ...stuff...</span>
+  <span class="pl-c">// ...stuff...</span>
 
-  <span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar'</span><span class="p">).</span><span class="nx">css</span><span class="p">({</span>
-    <span class="s1">'background-color'</span><span class="o">:</span> <span class="s1">'pink'</span>
-  <span class="p">});</span>
-<span class="p">}</span>
+  $(<span class="pl-s"><span class="pl-pds">'</span>.sidebar<span class="pl-pds">'</span></span>).css({
+    <span class="pl-s"><span class="pl-pds">'</span>background-color<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>pink<span class="pl-pds">'</span></span>
+  });
+}
 
-<span class="c1">// good</span>
-<span class="kd">function</span> <span class="nx">setSidebar</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">$sidebar</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar'</span><span class="p">);</span>
-  <span class="nx">$sidebar</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+<span class="pl-c">// good</span>
+<span class="pl-k">function</span> <span class="pl-en">setSidebar</span>() {
+  <span class="pl-k">var</span> $sidebar <span class="pl-k">=</span> $(<span class="pl-s"><span class="pl-pds">'</span>.sidebar<span class="pl-pds">'</span></span>);
+  $sidebar.hide();
 
-  <span class="c1">// ...stuff...</span>
+  <span class="pl-c">// ...stuff...</span>
 
-  <span class="nx">$sidebar</span><span class="p">.</span><span class="nx">css</span><span class="p">({</span>
-    <span class="s1">'background-color'</span><span class="o">:</span> <span class="s1">'pink'</span>
-  <span class="p">});</span>
-<span class="p">}</span>
-</pre></div>
+  $sidebar.css({
+    <span class="pl-s"><span class="pl-pds">'</span>background-color<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>pink<span class="pl-pds">'</span></span>
+  });
+}</pre></div>
 </li>
 <li><p>For DOM queries use Cascading <code>$('.sidebar ul')</code> or parent &gt; child <code>$('.sidebar &gt; .ul')</code>. <a href="http://jsperf.com/jquery-find-vs-context-sel/16">jsPerf</a></p></li>
 <li>
 <p>Use <code>find</code> with scoped jQuery object queries.</p>
 
-<div class="highlight"><pre><span class="c1">// bad</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar'</span><span class="p">,</span> <span class="s1">'ul'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bad</span>
+$(<span class="pl-s"><span class="pl-pds">'</span>.sidebar<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>ul<span class="pl-pds">'</span></span>).hide();
 
-<span class="c1">// bad</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar'</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+<span class="pl-c">// bad</span>
+$(<span class="pl-s"><span class="pl-pds">'</span>.sidebar<span class="pl-pds">'</span></span>).<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">'</span>ul<span class="pl-pds">'</span></span>).hide();
 
-<span class="c1">// good</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar ul'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+<span class="pl-c">// good</span>
+$(<span class="pl-s"><span class="pl-pds">'</span>.sidebar ul<span class="pl-pds">'</span></span>).hide();
 
-<span class="c1">// good</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">'.sidebar &gt; ul'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+<span class="pl-c">// good</span>
+$(<span class="pl-s"><span class="pl-pds">'</span>.sidebar &gt; ul<span class="pl-pds">'</span></span>).hide();
 
-<span class="c1">// good (slower)</span>
-<span class="nx">$sidebar</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">);</span>
+<span class="pl-c">// good (slower)</span>
+$sidebar.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">'</span>ul<span class="pl-pds">'</span></span>);
 
-<span class="c1">// good (faster)</span>
-<span class="nx">$</span><span class="p">(</span><span class="nx">$sidebar</span><span class="p">[</span><span class="mi">0</span><span class="p">]).</span><span class="nx">find</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">);</span>
-</pre></div>
+<span class="pl-c">// good (faster)</span>
+$($sidebar[<span class="pl-c1">0</span>]).<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">'</span>ul<span class="pl-pds">'</span></span>);</pre></div>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="es5">ECMAScript 5 Compatibility</a></h2>
+</ul>
+
+<h2>
+<a id="ecmascript-5-compatibility" class="anchor" href="#ecmascript-5-compatibility" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="es5">ECMAScript 5 Compatibility</a>
+</h2>
 
 <ul>
 <li>
@@ -1300,20 +1326,27 @@
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="testing">Testing</a></h2>
+</ul>
+
+<h2>
+<a id="testing" class="anchor" href="#testing" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="testing">Testing</a>
+</h2>
 
 <ul>
 <li>
 <p><strong>Yup.</strong></p>
 
-<div class="highlight"><pre><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre><span class="pl-k">function</span>() {
+  <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+}</pre></div>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="performance">Performance</a></h2>
+</ul>
+
+<h2>
+<a id="performance" class="anchor" href="#performance" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="performance">Performance</a>
+</h2>
 
 <ul>
 <li><a href="http://jsperf.com/string-vs-array-concat/2">String vs Array Concat</a></li>
@@ -1327,24 +1360,34 @@
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="resources">Resources</a></h2>
+</ul>
+
+<h2>
+<a id="resources" class="anchor" href="#resources" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="resources">Resources</a>
+</h2>
 
 <p><strong>Read This</strong></p>
 
 <ul>
 <li><a href="http://es5.github.com/">Annotated ECMAScript 5.1</a></li>
-</ul><p><strong>Other Styleguides</strong></p>
+</ul>
+
+<p><strong>Other Styleguides</strong></p>
 
 <ul>
 <li><a href="http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml">Google JavaScript Style Guide</a></li>
 <li><a href="http://docs.jquery.com/JQuery_Core_Style_Guidelines">jQuery Core Style Guidelines</a></li>
 <li><a href="https://github.com/rwldrn/idiomatic.js/">Principles of Writing Consistent, Idiomatic JavaScript</a></li>
-</ul><p><strong>Other Styles</strong></p>
+</ul>
+
+<p><strong>Other Styles</strong></p>
 
 <ul>
 <li>
 <a href="https://gist.github.com/4135065">Naming this in nested functions</a> - Christian Johansen</li>
-</ul><p><strong>Books</strong></p>
+</ul>
+
+<p><strong>Books</strong></p>
 
 <ul>
 <li>
@@ -1363,7 +1406,9 @@
 <a href="http://www.amazon.com/Pro-JavaScript-Techniques-John-Resig/dp/1590597273">Pro JavaScript Techniques</a> - John Resig</li>
 <li>
 <a href="http://www.amazon.com/Smashing-Node-js-JavaScript-Everywhere-Magazine/dp/1119962595">Smashing Node.js: JavaScript Everywhere</a> - Guillermo Rauch</li>
-</ul><p><strong>Blogs</strong></p>
+</ul>
+
+<p><strong>Blogs</strong></p>
 
 <ul>
 <li><a href="http://dailyjs.com/">DailyJS</a></li>
@@ -1381,7 +1426,11 @@
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 </li>
-</ul><h2><a name="in-the-wild">In the Wild</a></h2>
+</ul>
+
+<h2>
+<a id="in-the-wild" class="anchor" href="#in-the-wild" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="in-the-wild">In the Wild</a>
+</h2>
 
 <p>This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.</p>
 
@@ -1413,15 +1462,27 @@
 <li>
 <strong>Shutterfly</strong>: <a href="//github.com/shutterfly/javascript">shutterfly/javascript</a>
 </li>
-</ul><h2><a name="guide-guide">The JavaScript Style Guide Guide</a></h2>
+</ul>
+
+<h2>
+<a id="the-javascript-style-guide-guide" class="anchor" href="#the-javascript-style-guide-guide" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="guide-guide">The JavaScript Style Guide Guide</a>
+</h2>
 
 <ul>
 <li><a href="//github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide">Reference</a></li>
-</ul><h2><a name="authors">Contributors</a></h2>
+</ul>
+
+<h2>
+<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="authors">Contributors</a>
+</h2>
 
 <ul>
 <li><a href="https://github.com/airbnb/javascript/graphs/contributors">View Contributors</a></li>
-</ul><h2><a name="license">License</a></h2>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="license">License</a>
+</h2>
 
 <p>(The MIT License)</p>
 
@@ -1448,19 +1509,18 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 
 <p><strong><a href="#TOC">[⬆]</a></strong></p>
 
-<h1>};</h1>
-      </section>
-    </div>
+<h1>
+<a id="" class="anchor" href="#" aria-hidden="true"><span class="octicon octicon-link"></span></a>};</h1>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Airbnb JavaScript Style Guide maintained by <a href="https://github.com/airbnb">airbnb</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/zanemayo/javascript">Airbnb JavaScript Style Guide</a> is maintained by <a href="https://github.com/zanemayo">zanemayo</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
 
-    
+    </section>
 
+  
   </body>
 </html>
+
